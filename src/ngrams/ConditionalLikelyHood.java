@@ -646,12 +646,11 @@ public class ConditionalLikelyHood {
          			 
          			 Transaction tx= session.beginTransaction();
          			 //String SQL_QUERY="select bigram,count,probability from ngrams.BiGram_POJO where bigram=:bigram";
-         			 String SQL_QUERY="select trigram,counter,probability from TriGram_POJO_LaplaceSmoothing_Spam where trigram=:wordinQuery";
+         			 String SQL_QUERY="select trigram,counter,probability from TriGram_POJO_GoodTuring_Spam where trigram=:wordinQuery";
          			 Query query=session.createQuery(SQL_QUERY);
          			 query.setParameter("wordinQuery",trigram);
-         			
          			 
-         			 	if(query.list().size()==0) //trigram does not exist in DB
+         			 if(query.list().size()==0) //trigram does not exist in DB
          			 	{
          			 		 System.out.println("trigram does not exist :"+trigram);
          			 		 
@@ -667,7 +666,7 @@ public class ConditionalLikelyHood {
          			 		 trigram=trigram+"<unknown>";
          			 		 System.out.println("Unknown trigram formed is :"+trigram);
          			 			 
-         			 		 SQL_QUERY="select trigram,counter,probability from ngrams.TriGram_POJO_LaplaceSmoothing_Spam where trigram=:wordinQuery";
+         			 		 SQL_QUERY="select trigram,counter,probability from TriGram_POJO_GoodTuring_Spam where trigram=:wordinQuery";
                 			 query=session.createQuery(SQL_QUERY);
                 			 query.setParameter("wordinQuery",trigram);
                 			 
@@ -703,8 +702,7 @@ public class ConditionalLikelyHood {
         			Integer count=h.get(trigram);
         			count++;
          			h.put(trigram,count);
-         			//System.out.println("This bigram has already been considered");
-        		 }
+         		 }
          		 
          	}
          	 firstword=secondword;
@@ -719,12 +717,12 @@ public class ConditionalLikelyHood {
     	  
     	  System.out.println("CDL for document "+inputFileName+" is "+CDL);
     	  
-    	  Transaction tx1= session.beginTransaction();
+    	 /* Transaction tx1= session.beginTransaction();
     	  Query query = session.createQuery("update ngrams.CDLScore3_POJO set CDLScore_Good_turing_Spam_Data_Set='"+ CDL+"' where inputFileName= '"+inputFileName+"'");
     	  int update = query.executeUpdate();
     	  System.out.println("Updated "+update);
 		  tx1.commit();
-
+		 */
        }
 
      
