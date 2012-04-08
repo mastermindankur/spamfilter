@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/10/SpamFilter/src/decisiontree
+END
+DecisionTree.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/10/SpamFilter/src/decisiontree/DecisionTree.java
+END
+decisionvalues.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/10/SpamFilter/src/decisiontree/decisionvalues.hbm.xml
+END
+DecisionValuesPojo.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/10/SpamFilter/src/decisiontree/DecisionValuesPojo.java
+END

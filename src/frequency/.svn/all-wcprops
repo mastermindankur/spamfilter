@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/10/SpamFilter/src/frequency
+END
+ReadFilesandCalculateFrequency.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/3/SpamFilter/src/frequency/ReadFilesandCalculateFrequency.java
+END
+WordDataNonSpamPOJO.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/9/SpamFilter/src/frequency/WordDataNonSpamPOJO.hbm.xml
+END
+WordDataSpam_NonSpamPOJO.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/9/SpamFilter/src/frequency/WordDataSpam_NonSpamPOJO.hbm.xml
+END
+listofcommonwords.properties
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/9/SpamFilter/src/frequency/listofcommonwords.properties
+END
+WordDataSpam_NonSpamPOJO.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/9/SpamFilter/src/frequency/WordDataSpam_NonSpamPOJO.java
+END
+CreateFinalFile.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/10/SpamFilter/src/frequency/CreateFinalFile.java
+END
+WordDataNonSpamPOJO.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/9/SpamFilter/src/frequency/WordDataNonSpamPOJO.java
+END
+WordCount.java
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/9/SpamFilter/src/frequency/WordCount.java
+END
+HibernateUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/9/SpamFilter/src/frequency/HibernateUtil.java
+END
+TextIO.java
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/10/SpamFilter/src/frequency/TextIO.java
+END
+WordDataSpamPOJO.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/9/SpamFilter/src/frequency/WordDataSpamPOJO.hbm.xml
+END
+WordDataSpamPOJO.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/9/SpamFilter/src/frequency/WordDataSpamPOJO.java
+END

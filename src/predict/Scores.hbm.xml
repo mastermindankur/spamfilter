@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="predict.Scores" table="spam.scores">
+        <id name="mailno" column="mailno" type="java.lang.String">
+            
+        </id>
+    
+        <property name="scoreCTF" column="scoreCTF" type="java.lang.Float"/>
+        <property name="scoreDF" column="scoreDF" type="java.lang.Float"/>
+    </class>
+
+</hibernate-mapping>

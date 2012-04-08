@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/13/SpamFilter/src/ngrams
+END
+CDLHTextIO.java
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/13/SpamFilter/src/ngrams/CDLHTextIO.java
+END
+BiGram_POJO.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/13/SpamFilter/src/ngrams/BiGram_POJO.hbm.xml
+END
+TriGram_POJO_GoodTuring_Spam.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/13/SpamFilter/src/ngrams/TriGram_POJO_GoodTuring_Spam.java
+END
+CDLScore2_POJO.java
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/12/SpamFilter/src/ngrams/CDLScore2_POJO.java
+END
+TriGram_POJO_LaplaceSmoothing_Spam.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/12/SpamFilter/src/ngrams/TriGram_POJO_LaplaceSmoothing_Spam.java
+END
+CDLScore3_POJO.java
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/12/SpamFilter/src/ngrams/CDLScore3_POJO.java
+END
+TriGram_POJO_LaplaceSmoothing_NonSpam.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/12/SpamFilter/src/ngrams/TriGram_POJO_LaplaceSmoothing_NonSpam.java
+END
+CreateFinalFile.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/10/SpamFilter/src/ngrams/CreateFinalFile.java
+END
+ConditionalLikelyHood.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/13/SpamFilter/src/ngrams/ConditionalLikelyHood.java
+END
+NGram.java
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/13/SpamFilter/src/ngrams/NGram.java
+END
+BiGram_POJO.java
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/12/SpamFilter/src/ngrams/BiGram_POJO.java
+END
+TextIO.java
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/13/SpamFilter/src/ngrams/TextIO.java
+END
+TriGram_POJO_GoodTuring_NonSpam.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/13/SpamFilter/src/ngrams/TriGram_POJO_GoodTuring_NonSpam.java
+END
+TriGram_POJO.java
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/12/SpamFilter/src/ngrams/TriGram_POJO.java
+END

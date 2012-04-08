@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="ngrams.BiGram_POJO" table="spam.bigram">
+        <id name="bigram" column="bigram" type="java.lang.String">
+            
+        </id>
+    
+        <property name="counter" column="count" type="java.lang.Integer"/>
+        <property name="probability" column="probabilitiy" type="java.lang.Float"/>
+    </class>
+    
+    <class name="ngrams.TriGram_POJO" table="spam.trigram">
+        <id name="trigram" column="trigram" type="java.lang.String">
+            
+        </id>
+    
+        <property name="counter" column="count" type="java.lang.Integer"/>
+        <property name="probability" column="probabilitiy" type="java.lang.Float"/>
+    </class>
+    
+    <class name="ngrams.CDLScore2_POJO" table="spam.cdl_score_2">
+        <id name="inputFileName" column="filename" type="java.lang.String">
+            
+        </id>
+        <property name="CDLScore" column="cdl_score_2" type="java.lang.Float"/>
+    </class>
+    
+     <class name="ngrams.CDLScore3_POJO" table="spam.cdl_score_3">
+        <id name="inputFileName" column="filename" type="java.lang.String">
+            
+        </id>
+        <property name="CDLScore_Spam_Data_Set" column="cdl_score_3_spam_data_set" type="java.lang.Float"/>
+        <property name="CDLScore_NonSpam_Data_Set" column="cdl_score_3_nonspam_data_set" type="java.lang.Float"/>
+        
+        <property name="CDLScore_Laplace_Smoothing_Spam_Data_Set" column="cdl_score_3_laplace_smoothing_spam_data_set" type="java.lang.Float"/>
+        <property name="CDLScore_Laplace_Smoothing_NonSpam_Data_Set" column="cdl_score_3_laplace_smoothing_nonspam_data_set" type="java.lang.Float"/>
+        
+        <property name="CDLScore_Good_turing_Spam_Data_Set" column="cdl_score_good_turing_spam_data_set" type="java.lang.Float"/>
+        <property name="CDLScore_Good_turing_NonSpam_Data_Set" column="cdl_score_good_turing_nonspam_data_set" type="java.lang.Float"/>
+        
+    </class>
+    
+      <class name="ngrams.TriGram_POJO_LaplaceSmoothing_Spam" table="spam.trigram_laplacesmoothing_spam">
+        <id name="trigram" column="trigram" type="java.lang.String">
+        </id>
+        <property name="counter" column="count" type="java.lang.Integer"/>
+        <property name="probability" column="probability" type="java.lang.Float"/>
+        <property name="newcount" column="newcount" type="java.lang.Integer"/>
+        <property name="vocabulary" column="vocabulary" type="java.lang.Integer"/>
+     </class>
+    
+    
+    <class name="ngrams.TriGram_POJO_LaplaceSmoothing_NonSpam" table="spam.trigram_laplacesmoothing_nonspam">
+        <id name="trigram" column="trigram" type="java.lang.String">    
+        </id>
+        <property name="counter" column="count" type="java.lang.Integer"/>
+        <property name="probability" column="probability" type="java.lang.Float"/>
+        <property name="newcount" column="newcount" type="java.lang.Integer"/>
+        <property name="vocabulary" column="vocabulary" type="java.lang.Integer"/>
+    </class>
+    
+    <class name="ngrams.TriGram_POJO_GoodTuring_NonSpam" table="spam.trigram_goodturing_nonspam">
+        <id name="trigram" column="trigram" type="java.lang.String">
+            
+        </id>
+    
+        <property name="counter" column="count" type="java.lang.Integer"/>
+        <property name="probability" column="probability" type="java.lang.Float"/>
+        
+        <property name="nc" column="Nc" type="java.lang.Integer"/>
+        <property name="nc_plus_1" column="Nc_plus_1" type="java.lang.Integer"/>
+        <property name="newcount" column="newcount" type="java.lang.Float"/>
+        
+    </class>
+    
+    <class name="ngrams.TriGram_POJO_GoodTuring_Spam" table="spam.trigram_goodturing_spam">
+        <id name="trigram" column="trigram" type="java.lang.String">        
+        </id>
+    
+        <property name="counter" column="count" type="java.lang.Integer"/>
+        <property name="probability" column="probability" type="java.lang.Float"/>
+        
+        <property name="nc" column="Nc" type="java.lang.Integer"/>
+        <property name="nc_plus_1" column="Nc_plus_1" type="java.lang.Integer"/>
+        <property name="newcount" column="newcount" type="java.lang.Float"/>
+        
+    </class>
+    
+    
+    
+    
+    
+    
+    
+
+</hibernate-mapping>

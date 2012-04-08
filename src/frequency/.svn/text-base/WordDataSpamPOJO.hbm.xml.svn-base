@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="frequency.WordDataSpamPOJO" table="spam.spamemails">
+        <id name="word" column="Word" type="java.lang.String">
+            
+        </id>
+    
+        <property name="CTF" column="CumulativeTermFrequency" type="java.lang.Float"/>
+        <property name="DF" column="DocumentFrequency" type="java.lang.Float"/>
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,81 @@
+10
+
+dir
+13
+https://spamfilter.googlecode.com/svn/SpamFilter/src
+https://spamfilter.googlecode.com/svn
+
+
+
+2012-03-27T12:45:59.433434Z
+13
+ankur.khera.21@gmail.com
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+50eb0116-f467-980d-4fbd-b41b3621e90e
+
+
+
+
+
+
+0
+
+decisiontree
+dir
+
+frequency
+dir
+
+hibernate.cfg.xml
+file
+
+
+
+
+2012-01-29T12:11:55.000000Z
+8907db6dae20ba6fa35c2fa30bbf48ca
+2012-01-31T12:52:38.560421Z
+11
+ankur.khera.21@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1348
+
+ngrams
+dir
+
+predict
+dir
+

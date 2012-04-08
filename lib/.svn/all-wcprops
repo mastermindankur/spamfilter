@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/10/SpamFilter/lib
+END
+commons-logging-1.1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/10/SpamFilter/lib/commons-logging-1.1.1.jar
+END
+dom4j-full.jar
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/10/SpamFilter/lib/dom4j-full.jar
+END
+commons-collections-3.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/10/SpamFilter/lib/commons-collections-3.1.jar
+END
+mysql-connector-java-3.1.12.jar
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/10/SpamFilter/lib/mysql-connector-java-3.1.12.jar
+END
+cglib-nodep-2.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/10/SpamFilter/lib/cglib-nodep-2.2.jar
+END
+antlr.jar
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/10/SpamFilter/lib/antlr.jar
+END
+hibernate3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/10/SpamFilter/lib/hibernate3.jar
+END
+jta-1.0.1B.jar
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/10/SpamFilter/lib/jta-1.0.1B.jar
+END

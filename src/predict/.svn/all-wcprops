@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/10/SpamFilter/src/predict
+END
+TextIO.java
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/10/SpamFilter/src/predict/TextIO.java
+END
+PredictTestEmail.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/10/SpamFilter/src/predict/PredictTestEmail.java
+END
+Scores.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/10/SpamFilter/src/predict/Scores.hbm.xml
+END
+Scores.java
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/10/SpamFilter/src/predict/Scores.java
+END
