@@ -519,10 +519,10 @@ public class NGram {
 		       	 
 		        }
 		        //System.out.println("Vocabulary size is "+V);
-		        calculateTriGramProbability_goodturing();
+		        calculateTriGramProbability_goodturing_nonspam();
 			}
 			 
-			public void calculateTriGramProbability_goodturing()
+			public void calculateTriGramProbability_goodturing_spam()
 			{
 				for (String key1 : outer.keySet()) {
 				    System.out.println("-------------------Outer Key: " + key1 +"-----------------");
@@ -550,7 +550,16 @@ public class NGram {
 				    	System.out.println("Nc+1="+nc_plus_1);
 				    	System.out.println("Nc="+nc);
 				    	
-				    	float newcount=(float)(map.get(key2).count+1)*nc_plus_1/nc;
+				    	float newcount;
+				    	if(nc_plus_1!=0)
+				    	{
+				    		newcount=(float)(map.get(key2).count+1)*nc_plus_1/nc;
+				    	}
+				    	else //if higher order  frequency is 0 we do not do anything
+				    	{
+				    		newcount=(float)map.get(key2).count;
+				    	}
+				    	
 				    	float probability=newcount/(float)totcount;
 				    	
 				    	sumprobability=sumprobability+probability;
@@ -613,7 +622,16 @@ public class NGram {
 				    	System.out.println("Nc+1="+nc_plus_1);
 				    	System.out.println("Nc="+nc);
 				    	
-				    	float newcount=(float)(map.get(key2).count+1)*nc_plus_1/nc;
+				    	float newcount;
+				    	if(nc_plus_1!=0)
+				    	{
+				    	newcount=(float)(map.get(key2).count+1)*nc_plus_1/nc;
+				    	}
+				    	else
+				    	{
+				    		newcount=(float)map.get(key2).count;
+				    	}
+				    	
 				    	float probability=newcount/(float)totcount;
 				    	
 				    	sumprobability=sumprobability+probability;

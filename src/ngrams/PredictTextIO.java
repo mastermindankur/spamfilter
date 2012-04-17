@@ -41,7 +41,7 @@ import javax.swing.JFileChooser;
  * features, including the type of formatted output that was introduced in Java 5 and the ability to
  * use files and streams.)
  */
-public class CDLHTextIO {
+public class PredictTextIO {
 
    /* Modified November 2007 to empty the TextIO input buffer when switching from one
     * input source to another. This fixes a bug that allows input from the previous input
@@ -234,18 +234,30 @@ public class CDLHTextIO {
 	      } //end of if block
 	      emptyBuffer();  // Added November 2007
 	      in = newin;
+	      
+	      
 	      inputFileName = selectedFiles[i].getName();
 	      System.out.println("input file name passed is "+inputFileName);
 	      readingStandardInput = false;
 	      inputErrorCount = 0;
-	      //new ConditionalLikelyHood().bigramCondLH(inputFileName,selectedFiles[i].getAbsolutePath());
-	      //new ConditionalLikelyHood().trigramCondLH(inputFileName,selectedFiles[i].getAbsolutePath());
 	      
-	      //new ConditionalLikelyHood().trigramCondLHgoodturning_Spam(inputFileName,selectedFiles[i].getAbsolutePath());
+	      //######################################################
+	      System.out.println("input file name passed is "+inputFileName);
 	      
-	      //new ConditionalLikelyHood().trigramCondLHgoodturning_Spam(inputFileName,selectedFiles[i].getAbsolutePath());
+	      //Float CDL_NONSPAM= new Predict().CDLvalueforNonSPamDataSet(inputFileName,selectedFiles[i].getAbsolutePath());
+	      
+	     // emptyBuffer();
+	      
+	      //in = new BufferedReader( new FileReader(selectedFiles[i]) );
+	      
+	      Float CDL_SPAM=new Predict().CDLvalueforSPamDataSet(inputFileName,selectedFiles[i].getAbsolutePath());
+	     
+	     // System.out.println("The CDL on NON Spam Data Set is "+CDL_NONSPAM);
 	      
 	      
+	      
+	      System.out.println("The CDL on Spam Data Set is "+CDL_SPAM);
+
 	      } //end of for
 	      
 	          emptyBuffer();  // Added November 2007

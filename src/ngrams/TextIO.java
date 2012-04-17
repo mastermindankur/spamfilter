@@ -230,9 +230,9 @@ public class TextIO {
 		      //new NGram().calculateBiGramOnInputFile(inputFileName,FinalFile.getAbsolutePath());
 		      //new NGram().calculate3GramOnInputFile(inputFileName,FinalFile.getAbsolutePath());
 		      
-		      //new NGram().calculate3GramOnInputFile_laplaceSmoothing(inputFileName,FinalFile.getAbsolutePath());
+		      new NGram().calculate3GramOnInputFile_laplaceSmoothing(inputFileName,FinalFile.getAbsolutePath());
 		      
-		      new NGram().calculate3GramOnInputFile_goodturing(inputFileName,FinalFile.getAbsolutePath());
+		      //new NGram().calculate3GramOnInputFile_goodturing(inputFileName,FinalFile.getAbsolutePath());
 		      
 	      
 	      

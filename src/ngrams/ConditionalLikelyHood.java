@@ -553,12 +553,15 @@ public class ConditionalLikelyHood {
                 			 for(Iterator it=query.iterate();it.hasNext();){
               			 		Object[] row = (Object[]) it.next();
               			 		System.out.println("------------"+row[2]);
-              			 		Double add= Math.log((Float)row[2]);
-              			 		System.out.println("The probability for the trigram "+trigram+" is "+row[2]+" whose ln is "+add.floatValue());
-              			 		System.out.println("CDL before was"+CDL);
-              			 		CDL=CDL+add.floatValue();
-              			 		System.out.println("CDL after is"+CDL);
-              			 		K++;
+              			 		if((Float)row[2]>0F)
+              			 		{
+	              			 		Double add= Math.log((Float)row[2]);
+	              			 		System.out.println("The probability for the trigram "+trigram+" is "+row[2]+" whose ln is "+add.floatValue());
+	              			 		System.out.println("CDL before was"+CDL);
+	              			 		CDL=CDL+add.floatValue();
+	              			 		System.out.println("CDL after is"+CDL);
+	              			 		K++;
+              			 		}
               			 	}
          			 	}
          			 	
@@ -566,12 +569,15 @@ public class ConditionalLikelyHood {
          			 	{
          			 		for(Iterator it=query.iterate();it.hasNext();){
              			 		Object[] row = (Object[]) it.next();
-             			 		Double add= Math.log((Float)row[2]);
-             			 		System.out.println("The probability for the trigram "+trigram+" is "+row[2]+" whose ln is "+add.floatValue());
-             			 		System.out.println("CDL before was"+CDL);
-             			 		CDL=CDL+add.floatValue();
-             			 		System.out.println("CDL after is"+CDL);
-             			 		K++;
+             			 		if((Float)row[2]>0F)
+             			 		{
+	             			 		Double add= Math.log((Float)row[2]);
+	             			 		System.out.println("The probability for the trigram "+trigram+" is "+row[2]+" whose ln is "+add.floatValue());
+	             			 		System.out.println("CDL before was"+CDL);
+	             			 		CDL=CDL+add.floatValue();
+	             			 		System.out.println("CDL after is"+CDL);
+	             			 		K++;
+             			 		}
              			 	}
          			 	}
          			 
@@ -598,11 +604,11 @@ public class ConditionalLikelyHood {
     	  
     	  System.out.println("CDL for document "+inputFileName+" is "+CDL);
     	  
-    	  //Transaction tx1= session.beginTransaction();
-    	  //Query query = session.createQuery("update ngrams.CDLScore3_POJO set CDLScore_Good_turing_NonSpam_Data_Set='"+ CDL+"' where inputFileName= '"+inputFileName+"'");
-    	  //int update = query.executeUpdate();
-    	  //System.out.println("Updated "+update);
-		  //tx1.commit();
+    	  Transaction tx1= session.beginTransaction();
+    	  Query query = session.createQuery("update ngrams.CDLScore3_POJO set CDLScore_Good_turing_NonSpam_Data_Set='"+ CDL+"' where inputFileName= '"+inputFileName+"'");
+    	  int update = query.executeUpdate();
+    	  System.out.println("Updated "+update);
+		  tx1.commit();
 
        }
       
@@ -673,12 +679,15 @@ public class ConditionalLikelyHood {
                 			 for(Iterator it=query.iterate();it.hasNext();){
               			 		Object[] row = (Object[]) it.next();
               			 		System.out.println("------------"+row[2]);
-              			 		Double add= Math.log((Float)row[2]);
-              			 		System.out.println("The probability for the trigram "+trigram+" is "+row[2]+" whose ln is "+add.floatValue());
-              			 		System.out.println("CDL before was"+CDL);
-              			 		CDL=CDL+add.floatValue();
-              			 		System.out.println("CDL after is"+CDL);
-              			 		K++;
+              			 		if((Float)row[2]>0F)
+              			 		{
+              			 			Double add= Math.log((Float)row[2]);
+              			 			System.out.println("The probability for the trigram "+trigram+" is "+row[2]+" whose ln is "+add.floatValue());
+              			 			System.out.println("CDL before was"+CDL);
+              			 			CDL=CDL+add.floatValue();
+              			 			System.out.println("CDL after is"+CDL);
+              			 			K++;
+              			 		}
               			 	}
          			 	}
          			 	
@@ -686,12 +695,15 @@ public class ConditionalLikelyHood {
          			 	{
          			 		for(Iterator it=query.iterate();it.hasNext();){
              			 		Object[] row = (Object[]) it.next();
-             			 		Double add= Math.log((Float)row[2]);
-             			 		System.out.println("The probability for the trigram "+trigram+" is "+row[2]+" whose ln is "+add.floatValue());
-             			 		System.out.println("CDL before was"+CDL);
-             			 		CDL=CDL+add.floatValue();
-             			 		System.out.println("CDL after is"+CDL);
-             			 		K++;
+             			 		if((Float)row[2]>0F)
+              			 		{
+	             			 		Double add= Math.log((Float)row[2]);
+	             			 		System.out.println("The probability for the trigram "+trigram+" is "+row[2]+" whose ln is "+add.floatValue());
+	             			 		System.out.println("CDL before was"+CDL);
+	             			 		CDL=CDL+add.floatValue();
+	             			 		System.out.println("CDL after is"+CDL);
+	             			 		K++;
+              			 		}
              			 	}
          			 	}
          			 
@@ -717,12 +729,12 @@ public class ConditionalLikelyHood {
     	  
     	  System.out.println("CDL for document "+inputFileName+" is "+CDL);
     	  
-    	 /* Transaction tx1= session.beginTransaction();
+    	  Transaction tx1= session.beginTransaction();
     	  Query query = session.createQuery("update ngrams.CDLScore3_POJO set CDLScore_Good_turing_Spam_Data_Set='"+ CDL+"' where inputFileName= '"+inputFileName+"'");
     	  int update = query.executeUpdate();
     	  System.out.println("Updated "+update);
 		  tx1.commit();
-		 */
+		 
        }
 
      
