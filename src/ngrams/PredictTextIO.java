@@ -237,26 +237,35 @@ public class PredictTextIO {
 	      
 	      
 	      inputFileName = selectedFiles[i].getName();
-	      System.out.println("input file name passed is "+inputFileName);
+	      //System.out.println("input file name passed is "+inputFileName);
 	      readingStandardInput = false;
 	      inputErrorCount = 0;
 	      
 	      //######################################################
-	      System.out.println("input file name passed is "+inputFileName);
+	      //System.out.println("input file name passed is "+inputFileName);
 	      
-	      //Float CDL_NONSPAM= new Predict().CDLvalueforNonSPamDataSet(inputFileName,selectedFiles[i].getAbsolutePath());
+	      Float CDL_NONSPAM= new Predict().CDLvalueforNonSPamDataSet(inputFileName,selectedFiles[i].getAbsolutePath());
+	      System.out.println("The CDL on NON Spam Data Set for "+inputFileName+" is "+ CDL_NONSPAM);
 	      
-	     // emptyBuffer();
+	      emptyBuffer();
 	      
-	      //in = new BufferedReader( new FileReader(selectedFiles[i]) );
-	      
+	      in = new BufferedReader( new FileReader(selectedFiles[i]) );
 	      Float CDL_SPAM=new Predict().CDLvalueforSPamDataSet(inputFileName,selectedFiles[i].getAbsolutePath());
 	     
-	     // System.out.println("The CDL on NON Spam Data Set is "+CDL_NONSPAM);
+	    
+	      System.out.println("The CDL on Spam Data Set for "+inputFileName+" is "+CDL_SPAM);
+	      
+	      if(CDL_NONSPAM<CDL_SPAM)
+	      {
+	       System.out.println("The email"+inputFileName+"is NON SPAM");
+	      }
+	      
+	      if(CDL_NONSPAM>CDL_SPAM)
+	      {
+	       System.out.println("The email"+inputFileName+"is  SPAM");
+	      }
 	      
 	      
-	      
-	      System.out.println("The CDL on Spam Data Set is "+CDL_SPAM);
 
 	      } //end of for
 	      

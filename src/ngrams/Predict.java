@@ -53,7 +53,7 @@ public class Predict {
        	 if(previous2Words!=null)
        	 {
        		 trigram=previous2Words+" "+word;
-       		 System.out.println("trigram being considered is "+trigram);
+       		 //System.out.println("trigram being considered is "+trigram);
        		 
        		 if(!h.containsKey(trigram))
        		 {
@@ -68,7 +68,7 @@ public class Predict {
        			 
        			 	if(query.list().size()==0) //trigram does not exist in DB
        			 	{
-       			 		 System.out.println("trigram does not exist :"+trigram);
+       			 		 //System.out.println("trigram does not exist :"+trigram);
        			 		 
        			 		 String temp[]=null;
        			 		 temp=trigram.split(" ");
@@ -80,7 +80,7 @@ public class Predict {
        			 		 }
        			 		 
        			 		 trigram=trigram+"<unknown>";
-       			 		 System.out.println("Unknown trigram formed is :"+trigram);
+       			 		 //System.out.println("Unknown trigram formed is :"+trigram);
        			 			 
        			 		 SQL_QUERY="select trigram,counter,probability from ngrams.TriGram_POJO_LaplaceSmoothing_NonSpam where trigram=:wordinQuery";
               			 query=session.createQuery(SQL_QUERY);
@@ -88,12 +88,12 @@ public class Predict {
               			 
               			 for(Iterator it=query.iterate();it.hasNext();){
             			 		Object[] row = (Object[]) it.next();
-            			 		System.out.println("------------"+row[2]);
+            			 		//System.out.println("------------"+row[2]);
             			 		Double add= Math.log((Float)row[2]);
-            			 		System.out.println("The probability for the trigram "+trigram+" is "+row[2]+" whose ln is "+add.floatValue());
-            			 		System.out.println("CDL before was"+CDL);
+            			 		//System.out.println("The probability for the trigram "+trigram+" is "+row[2]+" whose ln is "+add.floatValue());
+            			 		//System.out.println("CDL before was"+CDL);
             			 		CDL=CDL+add.floatValue();
-            			 		System.out.println("CDL after is"+CDL);
+            			 		//System.out.println("CDL after is"+CDL);
             			 		K++;
             			 	}
        			 	}
@@ -103,10 +103,10 @@ public class Predict {
        			 		for(Iterator it=query.iterate();it.hasNext();){
            			 		Object[] row = (Object[]) it.next();
            			 		Double add= Math.log((Float)row[2]);
-           			 		System.out.println("The probability for the trigram "+trigram+" is "+row[2]+" whose ln is "+add.floatValue());
-           			 		System.out.println("CDL before was"+CDL);
+           			 		//System.out.println("The probability for the trigram "+trigram+" is "+row[2]+" whose ln is "+add.floatValue());
+           			 		//System.out.println("CDL before was"+CDL);
            			 		CDL=CDL+add.floatValue();
-           			 		System.out.println("CDL after is"+CDL);
+           			 		//System.out.println("CDL after is"+CDL);
            			 		K++;
            			 	}
        			 	}
@@ -127,12 +127,12 @@ public class Predict {
        	 word=readNextWord();   	 
        	 
         }
-        System.out.println("The CDL is"+CDL);
-        System.out.println("The no of unique trigrams is "+K);
+        //System.out.println("The CDL is"+CDL);
+        //System.out.println("The no of unique trigrams is "+K);
         CDL=(Float)CDL/K*-1;
         
   	  
-  	  System.out.println("CDL for document "+inputFileName+" is "+CDL);
+  	  //System.out.println("CDL for document "+inputFileName+" is "+CDL);
   	  return CDL;
   	  
   	  //Transaction tx1= session.beginTransaction();
@@ -173,7 +173,7 @@ public class Predict {
 	         	 if(previous2Words!=null)
 	         	 {
 	         		 trigram=previous2Words+" "+word;
-	         		System.out.println("trigram being considered is "+trigram);
+	         		//System.out.println("trigram being considered is "+trigram);
 	         		 
 	         		 if(!h.containsKey(trigram))
 	         		 {
@@ -187,7 +187,7 @@ public class Predict {
 	         			 
 	         			 	if(query.list().size()==0) //trigram does not exist in DB
 	         			 	{
-	         			 		 System.out.println("trigram does not exist :"+trigram);
+	         			 		 //System.out.println("trigram does not exist :"+trigram);
 	         			 		 
 	         			 		 String temp[]=null;
 	         			 		 temp=trigram.split(" ");
@@ -199,7 +199,7 @@ public class Predict {
 	         			 		 }
 	         			 		 
 	         			 		 trigram=trigram+"<unknown>";
-	         			 		 System.out.println("Unknown trigram formed is :"+trigram);
+	         			 		 //System.out.println("Unknown trigram formed is :"+trigram);
 	         			 			 
 	         			 		 SQL_QUERY="select trigram,counter,probability from ngrams.TriGram_POJO_LaplaceSmoothing_Spam where trigram=:wordinQuery";
 	                			 query=session.createQuery(SQL_QUERY);
@@ -207,12 +207,12 @@ public class Predict {
 	                			 
 	                			 for(Iterator it=query.iterate();it.hasNext();){
 	              			 		Object[] row = (Object[]) it.next();
-	              			 		System.out.println("------------"+row[2]);
+	              			 		//System.out.println("------------"+row[2]);
 	              			 		Double add= Math.log((Float)row[2]);
-	              			 		System.out.println("The probability for the trigram "+trigram+" is "+row[2]+" whose ln is "+add.floatValue());
-	              			 		System.out.println("CDL before was"+CDL);
+	              			 		//System.out.println("The probability for the trigram "+trigram+" is "+row[2]+" whose ln is "+add.floatValue());
+	              			 		//System.out.println("CDL before was"+CDL);
 	              			 		CDL=CDL+add.floatValue();
-	              					System.out.println("CDL after is"+CDL);
+	              					//System.out.println("CDL after is"+CDL);
 	              			 		K++;
 	              			 	}
 	         			 	}
@@ -222,10 +222,10 @@ public class Predict {
 	         			 		for(Iterator it=query.iterate();it.hasNext();){
 	             			 		Object[] row = (Object[]) it.next();
 	             			 		Double add= Math.log((Float)row[2]);
-	             			 		System.out.println("The probability for the trigram "+trigram+" is "+row[2]+" whose ln is "+add.floatValue());
-	             			 		System.out.println("CDL before was"+CDL);
+	             			 		//System.out.println("The probability for the trigram "+trigram+" is "+row[2]+" whose ln is "+add.floatValue());
+	             			 		//System.out.println("CDL before was"+CDL);
 	             			 		CDL=CDL+add.floatValue();
-	             			 		System.out.println("CDL after is"+CDL);
+	             			 		//System.out.println("CDL after is"+CDL);
 	             			 		K++;
 	             			 	}
 	         			 	}
@@ -245,12 +245,12 @@ public class Predict {
 	         	 word=readNextWord();   	 
 	         	 
 	          }
-	          System.out.println("The CDL is"+CDL);
-	          System.out.println("The no of unique trigrams is "+K);
+	          //System.out.println("The CDL is"+CDL);
+	          //System.out.println("The no of unique trigrams is "+K);
 	          CDL=(Float)CDL/K*-1;
 	          
 	    	  
-	    	  System.out.println("CDL for document "+inputFileName+" is "+CDL);
+	    	  //System.out.println("CDL for document "+inputFileName+" is "+CDL);
 	    	  
 	    	  return CDL;
 	       }
