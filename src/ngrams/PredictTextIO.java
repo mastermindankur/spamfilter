@@ -15,6 +15,11 @@ import java.io.Reader;
 import java.util.IllegalFormatException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import frequency.HibernateUtil;
 
 import javax.swing.JFileChooser;
 
@@ -255,14 +260,25 @@ public class PredictTextIO {
 	    
 	      System.out.println("The CDL on Spam Data Set for "+inputFileName+" is "+CDL_SPAM);
 	      
+	      Session session = HibernateUtil.getSessionFactory().openSession();
+	      
 	      if(CDL_NONSPAM<CDL_SPAM)
 	      {
 	       System.out.println("The email"+inputFileName+"is NON SPAM");
+	       Transaction tx1= session.beginTransaction();
+	       Prediction_POJO p=new Prediction_POJO(inputFileName,CDL_SPAM,CDL_NONSPAM,"NON SPAM");
+	       session.save(p);
+	       tx1.commit();
 	      }
 	      
 	      if(CDL_NONSPAM>CDL_SPAM)
 	      {
 	       System.out.println("The email"+inputFileName+"is  SPAM");
+	       Transaction tx1= session.beginTransaction();
+	       Prediction_POJO p=new Prediction_POJO(inputFileName,CDL_SPAM,CDL_NONSPAM,"SPAM");
+	       session.save(p);
+	       tx1.commit();
+	    
 	      }
 	      
 	      

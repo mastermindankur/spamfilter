@@ -90,11 +90,12 @@
         
     </class>
     
-    
-    
-    
-    
-    
-    
-
+        <class name="ngrams.Prediction_POJO" table="spam.prediction">
+	        <id name="email" column="Email" type="java.lang.String">        
+	        </id>
+	        <property name="cdl_score_spam" column="cdl_score_spam" type="java.lang.Double"/>
+	        <property name="cdl_score_nonspam" column="cdl_score_nonspam" type="java.lang.Double"/>
+	        <property name="prediction" column="prediction" type="java.lang.String"/>
+    	</class>
+  
 </hibernate-mapping>

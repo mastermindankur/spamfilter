@@ -381,10 +381,10 @@ public class NGram {
 	       	 
 	        }
 	        //System.out.println("Vocabulary size is "+V);
-	        calculateTriGramProbability_laplacesmoothing();
+	        calculateTriGramProbability_laplacesmoothing_spam();
 		}
 		 
-		public void calculateTriGramProbability_laplacesmoothing()
+		public void calculateTriGramProbability_laplacesmoothing_spam()
 		{
 			for (String key1 : outer.keySet()) {
 			    System.out.println("-------------------Outer Key: " + key1 +"-----------------");
@@ -418,8 +418,8 @@ public class NGram {
 			   	    Transaction tx= session.beginTransaction();
 			   	    
 			   	    //comment for non spam
-			   	    //TriGram_POJO_LaplaceSmoothing_NonSpam db=new TriGram_POJO_LaplaceSmoothing_NonSpam(w.bigram,w.count,w.probability,w.count+1,V);
-			   	    TriGram_POJO_LaplaceSmoothing_Spam db=new TriGram_POJO_LaplaceSmoothing_Spam(w.bigram,w.count,w.probability,w.count+1,V);
+			   	    TriGram_POJO_LaplaceSmoothing_NonSpam db=new TriGram_POJO_LaplaceSmoothing_NonSpam(w.bigram,w.count,w.probability,w.count+1,V);
+			   	    //###TriGram_POJO_LaplaceSmoothing_Spam db=new TriGram_POJO_LaplaceSmoothing_Spam(w.bigram,w.count,w.probability,w.count+1,V);
 			   	   
 			   	    session.save(db);
 			   	    tx.commit();
@@ -428,8 +428,8 @@ public class NGram {
 			    
 			    Transaction tx= session.beginTransaction();
 			    //# comment for nonspam
-		   	    //TriGram_POJO_LaplaceSmoothing_NonSpam db=new TriGram_POJO_LaplaceSmoothing_NonSpam(key1+" <unknown>",0,(float)1/(float)(totcount+V),1,V);
-		   	    TriGram_POJO_LaplaceSmoothing_Spam db=new TriGram_POJO_LaplaceSmoothing_Spam(key1+" <unknown>",0,(float)1/(float)(totcount+V),1,V);
+		   	    TriGram_POJO_LaplaceSmoothing_NonSpam db=new TriGram_POJO_LaplaceSmoothing_NonSpam(key1+" <unknown>",0,(float)1/(float)(totcount+V),1,V);
+		   	    //####TriGram_POJO_LaplaceSmoothing_Spam db=new TriGram_POJO_LaplaceSmoothing_Spam(key1+" <unknown>",0,(float)1/(float)(totcount+V),1,V);
 		   	    session.save(db);
 		   	    tx.commit();
 		   	    
