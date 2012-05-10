@@ -33,7 +33,15 @@
         <id name="inputFileName" column="filename" type="java.lang.String">
             
         </id>
-        <property name="CDLScore" column="cdl_score_3" type="java.lang.Float"/>
+        <property name="CDLScore_Spam_Data_Set" column="cdl_score_3_spam_data_set" type="java.lang.Float"/>
+        <property name="CDLScore_NonSpam_Data_Set" column="cdl_score_3_nonspam_data_set" type="java.lang.Float"/>
+        
+        <property name="CDLScore_Laplace_Smoothing_Spam_Data_Set" column="cdl_score_3_laplace_smoothing_spam_data_set" type="java.lang.Float"/>
+        <property name="CDLScore_Laplace_Smoothing_NonSpam_Data_Set" column="cdl_score_3_laplace_smoothing_nonspam_data_set" type="java.lang.Float"/>
+        
+        <property name="CDLScore_Good_turing_Spam_Data_Set" column="cdl_score_good_turing_spam_data_set" type="java.lang.Float"/>
+        <property name="CDLScore_Good_turing_NonSpam_Data_Set" column="cdl_score_good_turing_nonspam_data_set" type="java.lang.Float"/>
+        
     </class>
     
       <class name="ngrams.TriGram_POJO_LaplaceSmoothing_Spam" table="spam.trigram_laplacesmoothing_spam">
@@ -82,11 +90,12 @@
         
     </class>
     
-    
-    
-    
-    
-    
-    
-
+        <class name="ngrams.Prediction_POJO" table="spam.prediction">
+	        <id name="email" column="Email" type="java.lang.String">        
+	        </id>
+	        <property name="cdl_score_spam" column="cdl_score_spam" type="java.lang.Double"/>
+	        <property name="cdl_score_nonspam" column="cdl_score_nonspam" type="java.lang.Double"/>
+	        <property name="prediction" column="prediction" type="java.lang.String"/>
+    	</class>
+  
 </hibernate-mapping>

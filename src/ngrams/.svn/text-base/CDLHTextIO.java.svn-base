@@ -240,7 +240,10 @@ public class CDLHTextIO {
 	      inputErrorCount = 0;
 	      //new ConditionalLikelyHood().bigramCondLH(inputFileName,selectedFiles[i].getAbsolutePath());
 	      //new ConditionalLikelyHood().trigramCondLH(inputFileName,selectedFiles[i].getAbsolutePath());
-	      new ConditionalLikelyHood().trigramCondLHLapalceSmoothing(inputFileName,selectedFiles[i].getAbsolutePath());
+	      
+	      //new ConditionalLikelyHood().trigramCondLHgoodturning_Spam(inputFileName,selectedFiles[i].getAbsolutePath());
+	      
+	      //new ConditionalLikelyHood().trigramCondLHgoodturning_Spam(inputFileName,selectedFiles[i].getAbsolutePath());
 	      
 	      
 	      } //end of for

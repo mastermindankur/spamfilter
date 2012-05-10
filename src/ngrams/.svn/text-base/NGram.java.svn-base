@@ -369,11 +369,8 @@ public class NGram {
 	           			//System.out.println("has already been encountered "+bigram+" with count "+count+" updating outer hashmap ,incrementing count to "+w.count);
 	           			inner.put(trigram,w);
 	           			outer.put(previoustwoWords,inner);//updating outr hashmap
-	           		 }
-	       			 
-	       		 }
-	       			 
-	       			 
+	           		 } 
+	       		 }		 
 	       	}
 	       	 
 	       	 firstword=secondword;
@@ -384,10 +381,10 @@ public class NGram {
 	       	 
 	        }
 	        //System.out.println("Vocabulary size is "+V);
-	        calculateTriGramProbability_laplacesmoothing();
+	        calculateTriGramProbability_laplacesmoothing_spam();
 		}
 		 
-		public void calculateTriGramProbability_laplacesmoothing()
+		public void calculateTriGramProbability_laplacesmoothing_spam()
 		{
 			for (String key1 : outer.keySet()) {
 			    System.out.println("-------------------Outer Key: " + key1 +"-----------------");
@@ -421,8 +418,8 @@ public class NGram {
 			   	    Transaction tx= session.beginTransaction();
 			   	    
 			   	    //comment for non spam
-			   	    //TriGram_POJO_LaplaceSmoothing_NonSpam db=new TriGram_POJO_LaplaceSmoothing_NonSpam(w.bigram,w.count,w.probability,w.count+1,V);
-			   	    TriGram_POJO_LaplaceSmoothing_Spam db=new TriGram_POJO_LaplaceSmoothing_Spam(w.bigram,w.count,w.probability,w.count+1,V);
+			   	    TriGram_POJO_LaplaceSmoothing_NonSpam db=new TriGram_POJO_LaplaceSmoothing_NonSpam(w.bigram,w.count,w.probability,w.count+1,V);
+			   	    //###TriGram_POJO_LaplaceSmoothing_Spam db=new TriGram_POJO_LaplaceSmoothing_Spam(w.bigram,w.count,w.probability,w.count+1,V);
 			   	   
 			   	    session.save(db);
 			   	    tx.commit();
@@ -431,8 +428,8 @@ public class NGram {
 			    
 			    Transaction tx= session.beginTransaction();
 			    //# comment for nonspam
-		   	    //TriGram_POJO_LaplaceSmoothing_NonSpam db=new TriGram_POJO_LaplaceSmoothing_NonSpam(key1+" <unknown>",0,(float)1/(float)(totcount+V),1,V);
-		   	    TriGram_POJO_LaplaceSmoothing_Spam db=new TriGram_POJO_LaplaceSmoothing_Spam(key1+" <unknown>",0,(float)1/(float)(totcount+V),1,V);
+		   	    TriGram_POJO_LaplaceSmoothing_NonSpam db=new TriGram_POJO_LaplaceSmoothing_NonSpam(key1+" <unknown>",0,(float)1/(float)(totcount+V),1,V);
+		   	    //####TriGram_POJO_LaplaceSmoothing_Spam db=new TriGram_POJO_LaplaceSmoothing_Spam(key1+" <unknown>",0,(float)1/(float)(totcount+V),1,V);
 		   	    session.save(db);
 		   	    tx.commit();
 		   	    
@@ -522,10 +519,10 @@ public class NGram {
 		       	 
 		        }
 		        //System.out.println("Vocabulary size is "+V);
-		        calculateTriGramProbability_goodturing();
+		        calculateTriGramProbability_goodturing_nonspam();
 			}
 			 
-			public void calculateTriGramProbability_goodturing()
+			public void calculateTriGramProbability_goodturing_spam()
 			{
 				for (String key1 : outer.keySet()) {
 				    System.out.println("-------------------Outer Key: " + key1 +"-----------------");
@@ -537,6 +534,8 @@ public class NGram {
 				    {
 				    	 totcount=totcount+map.get(key2).count;
 				    }
+				    
+				    float sumprobability=0;//added for good turing
 				    
 				    for(String key2 : map.keySet())
 				    {
@@ -551,8 +550,19 @@ public class NGram {
 				    	System.out.println("Nc+1="+nc_plus_1);
 				    	System.out.println("Nc="+nc);
 				    	
-				    	float newcount=(float)(map.get(key2).count+1)*nc_plus_1/nc;
+				    	float newcount;
+				    	if(nc_plus_1!=0)
+				    	{
+				    		newcount=(float)(map.get(key2).count+1)*nc_plus_1/nc;
+				    	}
+				    	else //if higher order  frequency is 0 we do not do anything
+				    	{
+				    		newcount=(float)map.get(key2).count;
+				    	}
+				    	
 				    	float probability=newcount/(float)totcount;
+				    	
+				    	sumprobability=sumprobability+probability;
 				    	
 				    	Transaction tx= session.beginTransaction();
 				   	    //TriGram_POJO_GoodTuring_NonSpam db=new TriGram_POJO_GoodTuring_NonSpam(key2,map.get(key2).count,probability,newcount,(int)nc,(int)nc_plus_1);
@@ -563,6 +573,16 @@ public class NGram {
 				   	    tx.commit();
 				    }	 
 				    
+				    float nc_plus_1=(float)E(1);
+			    	float nc=(float)E(0);
+			    	
+				    Transaction tx= session.beginTransaction();
+			   	    //TriGram_POJO_GoodTuring_NonSpam db=new TriGram_POJO_GoodTuring_NonSpam(key2,map.get(key2).count,probability,newcount,(int)nc,(int)nc_plus_1);
+			   	    TriGram_POJO_GoodTuring_Spam db=new TriGram_POJO_GoodTuring_Spam(key1+" <unknown>",0,1-sumprobability,-1,-1,(int)nc_plus_1);    
+			   	    session.save(db);
+			   	    tx.commit();
+			    
+				    
 				    
 				    //System.out.println("--------------The total count for "+key1 +"is :"+totcount+"-------------");
 				    
@@ -571,6 +591,76 @@ public class NGram {
 				session.close();
 				
 			}
+			
+			
+
+			public void calculateTriGramProbability_goodturing_nonspam()
+			{
+				for (String key1 : outer.keySet()) {
+				    System.out.println("-------------------Outer Key: " + key1 +"-----------------");
+				    int totcount=0;
+				    
+				    HashMap <String,WordData> map=outer.get(key1);
+				    
+				    for(String key2 : map.keySet())
+				    {
+				    	 totcount=totcount+map.get(key2).count;
+				    }
+				    
+				    float sumprobability=0;//added for good turing
+				    
+				    for(String key2 : map.keySet())
+				    {
+				    	float nc;
+				    	float nc_plus_1;
+				    	
+				    	System.out.println("the count for "+key2+" is :"+map.get(key2).count); 
+				    	System.out.println("c="+map.get(key2).count);
+				    	nc_plus_1=(float)E(map.get(key2).count+1);
+				    	nc=(float)E(map.get(key2).count);
+				    	
+				    	System.out.println("Nc+1="+nc_plus_1);
+				    	System.out.println("Nc="+nc);
+				    	
+				    	float newcount;
+				    	if(nc_plus_1!=0)
+				    	{
+				    	newcount=(float)(map.get(key2).count+1)*nc_plus_1/nc;
+				    	}
+				    	else
+				    	{
+				    		newcount=(float)map.get(key2).count;
+				    	}
+				    	
+				    	float probability=newcount/(float)totcount;
+				    	
+				    	sumprobability=sumprobability+probability;
+				    	
+				    	Transaction tx= session.beginTransaction();
+				  
+				   	    TriGram_POJO_GoodTuring_NonSpam db=new TriGram_POJO_GoodTuring_NonSpam(key2,map.get(key2).count,probability,newcount,(int)nc,(int)nc_plus_1);
+				   	    
+				   	    
+				   	    session.save(db);
+				   	    tx.commit();
+				    }	 
+				    
+				    float nc_plus_1=(float)E(1);
+			    	float nc=(float)E(0);
+			    	
+				    Transaction tx= session.beginTransaction();
+			   	  
+				    TriGram_POJO_GoodTuring_NonSpam db=new TriGram_POJO_GoodTuring_NonSpam(key1+" <unknown>",0,1-sumprobability,-1,-1,(int)nc_plus_1);    
+			   	    session.save(db);
+			   	    tx.commit();
+			    
+			   	    System.out.println();
+				}
+				session.close();
+				
+			}
+
+			
 
 			private int E(int K) {
 				int answer=0;
